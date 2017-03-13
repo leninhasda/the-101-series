@@ -28,7 +28,24 @@
                </ol>
             </div>
          </div>
-
+         <div class="row">
+            <div class="col-md-6">
+               <p>Example <code>ng-repeat</code> with <code>order by</code></p>
+               <ol>
+                  <li ng-repeat="country in countries | orderBy:'name'">
+                     {{country.name}} : {{country.local}}
+                  </li>
+               </ol>
+            </div>
+            <div class="col-md-6">
+               <p>Example <code>ng-repeat</code> with <code>filter</code></p>
+               <ol>
+                  <li ng-repeat="country in countries ">
+                     {{country.name}} : {{country.local}} - {{country.rate | currency}}
+                  </li>
+               </ol>
+            </div>
+         </div>
       </div>
       <script type="text/javascript">
          angular.module('firstApp', [])
@@ -38,22 +55,21 @@
             $scope.countries = [
                {
                   "local": "en-US",
-                  "name": "United States"
+                  "name": "United States",
+                  "rate": "1.2"
                },
                {
                   "local": "en-GB",
-                  "name": "Unites Kingdom"
+                  "name": "Unites Kingdom",
+                  "rate": "4.2"
                },
                {
                   "local": "en-FR",
-                  "name": "France"
+                  "name": "France",
+                  "rate": "3.22"
                }
             ];
 
-            for( index in $scope.countries ) {
-               country = $scope.countries[index];
-               console.log(country);
-            }
          });
       </script>
    </body>
