@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="firstApp">
+   <head>
+      <title>Controller</title>
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+   </head>
+   <body>
+      <div class="jumbotron text-center" ng-controller="FirstController">
+          <h2>Welcome <code>{{hello.title}}</code> to the world of Angular JS</h2>
+      </div>
+      <script type="text/javascript">
+         angular.module('firstApp', [])
+         .controller('FirstController', function($scope){
+            $scope.hello = {};
+            $scope.hello.title = 'Man and Women';
+         });
+      </script>
+   </body>
+</html>
