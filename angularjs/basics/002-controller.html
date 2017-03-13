@@ -5,15 +5,42 @@
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
    </head>
-   <body>
-      <div class="jumbotron text-center" ng-controller="FirstController">
+   <body ng-controller="FirstController">
+      <div class="jumbotron text-center" >
           <h2>Welcome <code>{{hello.title}}</code> to the world of Angular JS</h2>
+      </div>
+      <div class="container">
+         <p>Example <code>ng-repeat</code></p>
+         <ol>
+            <li ng-repeat="country in countries">
+               {{country.name}} : {{country.local}}
+            </li>
+         </ol>
       </div>
       <script type="text/javascript">
          angular.module('firstApp', [])
          .controller('FirstController', function($scope){
             $scope.hello = {};
             $scope.hello.title = 'Man and Women';
+            $scope.countries = [
+               {
+                  "local": "en-US",
+                  "name": "United States"
+               },
+               {
+                  "local": "en-GB",
+                  "name": "Unites Kingdom"
+               },
+               {
+                  "local": "en-FR",
+                  "name": "France"
+               }
+            ];
+
+            for( index in $scope.countries ) {
+               country = $scope.countries[index];
+               console.log(country);
+            }
          });
       </script>
    </body>
