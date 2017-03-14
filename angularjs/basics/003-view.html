@@ -7,9 +7,9 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
    </head>
    <body ng-controller="testController">
-      <div class="jumbotron text-center">
-         <h1>Working with View</h1>
-      </div>
+
+      <div ng-include="'000-header.html'"></div>
+
       <div class="container">
          <div class="row">
             <div class="col-md-2">
@@ -47,6 +47,7 @@
          }])
          .controller('testController', function($scope){
             $scope.msg = 'this is scope message';
+            $scope.tuts = 'View and Router';
          })
       </script>
    </body>
