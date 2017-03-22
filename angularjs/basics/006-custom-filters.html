@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="myApp">
+   <head>
+      <title>Scope Inheritance</title>
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+   </head>
+   <body ng-controller="filterController">
+
+      <div ng-include="'000-header.html'"></div>
+
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <p>Orignal</p>
+               <h3>{{text}}</h3>
+               <p>Filtered</p>
+               <h3>{{text | clean}}</h3>
+            </div>
+         </div>
+      </div>
+
+      <script type="text/javascript">
+         var app = angular.module('myApp', []);
+         app
+         .filter('clean', function(){
+            return function(input){
+               return input.toLowerCase()
+                           .replace(/\s/g, '-')
+                           .replace(/[^a-z0-9-]/ig, '');
+            }
+         })
+         .controller('filterController', function($scope){
+            $scope.tuts = 'Custom Filter';
+            $scope.text = "Hello world, this is just a dummy 12312 text!!";
+         })
+      </script>
+   </body>
+</html>
