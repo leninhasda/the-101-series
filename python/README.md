@@ -10,7 +10,7 @@ the repo contains all the python related learning and tests i have done so far. 
 - [ ] intermediate
     - [ ] string manipulation
     - [ ] list
-    - [ ] tuple
+    - [x] tuple
     - [ ] set
     - [ ] dictionary
 - [ ] advance
