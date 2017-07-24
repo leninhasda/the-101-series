@@ -5,7 +5,7 @@ the repo contains all the python related learning and tests i have done so far. 
 ### checklist
 - [ ] basic
     - [x] variable, data types, operators, comment
-    - [ ] condition, loop
+    - [x] condition, loop
     - [x] functions
 - [ ] intermediate
     - [ ] string manipulation
