@@ -1,0 +1,28 @@
+# vendors
+node_modules
+bower_components
+
+# project settings
+*~
+*.pyc
+*.swp
+*.swo
+*.DS_Store
+*.tmp
+*.bak
+*~.nib
+*.pydevproject
+*.sublime-workspace
+.classpath
+.settings/
+.loadpath
+.cproject
+.buildpath
+.project
+.metadata
+
+# OS temps
+.Trashes
+$RECYCLE.BIN/
+
+# archive files
