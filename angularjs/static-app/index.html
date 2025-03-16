@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="spaApp">
+   <head>
+      <title>Single Page Application</title>
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+   </head>
+   <body ng-controller="appController">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <a href="#home" class="navbar-brand">App</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-view></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var app = angular.module('spaApp', ['ngRoute']);
+
+            app.config(['$routeProvider', function($routeProvider){
+                $routeProvider
+                    .when('/home', {
+                        templateUrl: 'home.html'
+                    })
+                    .when('/about', {
+                        templateUrl: 'about.html'
+                    })
+                    .when('/contact', {
+                        templateUrl: 'contact.html'
+                    })
+                    .otherwise({
+                        redirectTo: '/home'
+                    });
+            }])
+            .controller('appController', function($scope){
+
+            });
+        </script>
+   </body>
+</html>
