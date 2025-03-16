@@ -1,0 +1,5 @@
+**/obj/*
+**/bin/libs/*
+**/.vs
+**/*.db
+**/*.opendb
