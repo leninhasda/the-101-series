@@ -1,5 +1,7 @@
 package main
 
-func main() {
+import "practiceConcurrency/simple"
 
+func main() {
+	simple.Example()
 }
