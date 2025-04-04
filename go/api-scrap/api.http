@@ -1,0 +1,6 @@
+#  email: sexepi8654@doishy.com
+# password: what is the password for this account?
+GET http://api.openweathermap.org/geo/1.0/direct?q=berlin&limit=5&appid=4ac905c29507b896d4c046ade8f35863
+###
+GET https://api.openweathermap.org/data/2.5/weather?q=Berlin,de&units=metric&APPID=4ac905c29507b896d4c046ade8f35863
+# GET http://api.openweathermap.org/geo/1.0/direct?q=berlin&limit=5&appid=4ac905c29507b896d4c046ade8f35863
