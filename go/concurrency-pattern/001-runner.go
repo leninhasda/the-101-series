@@ -5,18 +5,22 @@ import (
 	"os"
 	"time"
 
-	"github.com/leninhasda/go-101/concurrency-pattern/runner"
+	"practiceConcurrency/runner"
 )
 
 // const timeout = 7 * time.Second // pass
 const timeout = 3 * time.Second // timeout
 
-func main() {
+func runner_example() {
 	log.Println("Starting work.")
 
 	r := runner.New(timeout)
 
-	r.Add(createTask(), createTask(), createTask())
+	r.Add(
+		createTask(),
+		createTask(),
+		createTask(),
+	)
 
 	if err := r.Start(); err != nil {
 		switch err {

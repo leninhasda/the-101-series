@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/leninhasda/go-101/concurrency-pattern/work"
+	"practiceConcurrency/work"
 )
 
 var names = []string{
@@ -25,7 +25,7 @@ func (m *namePrinter) Task() {
 	time.Sleep(time.Second)
 }
 
-func main() {
+func work_example() {
 	p := work.New(2)
 
 	var wg sync.WaitGroup

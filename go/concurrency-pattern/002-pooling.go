@@ -8,7 +8,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/leninhasda/go-101/concurrency-pattern/pool"
+	"practiceConcurrency/pool"
 )
 
 const (
@@ -33,7 +33,7 @@ func createConnection() (io.Closer, error) {
 	return &dbConnection{id}, nil
 }
 
-func main() {
+func pool_example() {
 
 	var wg sync.WaitGroup
 	wg.Add(maxGoroutines)
