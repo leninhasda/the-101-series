@@ -1,0 +1,6 @@
+#  email: <email>
+# password: <password>
+GET http://api.openweathermap.org/geo/1.0/direct?q=berlin&limit=5&appid=APP_ID
+###
+GET https://api.openweathermap.org/data/2.5/weather?q=Berlin,de&units=metric&APPID=APP_ID
+# GET http://api.openweathermap.org/geo/1.0/direct?q=berlin&limit=5&appid=APP_ID
