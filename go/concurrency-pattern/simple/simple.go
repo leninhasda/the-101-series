@@ -16,16 +16,27 @@ func Example() {
 		cmd = os.Args[1]
 	}
 
+	if len(os.Args) > 2 {
+		fileName := os.Args[2]
+		b, err := os.ReadFile(fileName)
+		if err != nil {
+			log.Fatal(err)
+		}
+		document = strings.Split((string(b)), ".")
+	}
+
 	if cmd == "simple" {
 		process_simple(document)
+		println("sm")
 	} else if cmd == "mutex" {
 		process_routine_mutex(document)
+		println("mu")
 	} else if cmd == "channel" {
-		// process_routine_channel(document)
+		process_routine_channel(document)
+		println("ch")
 	} else {
 		log.Fatal("unknown command: ", cmd)
 	}
-
 }
 
 // count each word frequency and
@@ -93,5 +104,52 @@ func processLine(line string, result map[string]int) {
 		mu.Lock()
 		result[word]++
 		mu.Unlock()
+	}
+}
+
+// count each word frequency using go routine
+// print the works having more than 1 occurrence
+func process_routine_channel(document []string) {
+	maxRoutine := 100
+	resultMap := make(map[string]int)
+	lineChannel := make(chan string, maxRoutine)
+
+	resultLen := len(document)
+	_ = resultLen
+	var wg sync.WaitGroup
+	for i := 0; i < maxRoutine; i++ {
+		wg.Add(1)
+
+		go func() {
+			processLineWithChannel(lineChannel, resultMap)
+			wg.Done()
+		}()
+	}
+
+	for _, line := range document {
+		lineChannel <- line
+	}
+	close(lineChannel)
+
+	wg.Wait()
+	print(resultMap)
+}
+
+func processLineWithChannel(lineInput chan string, result map[string]int) {
+	// println("starting ..")
+	for line := range lineInput {
+		words := strings.Split(line, " ")
+		for _, word := range words {
+			word = strings.TrimSpace(word)
+			if len(word) <= 0 {
+				continue
+			}
+			word = strings.ToLower(word)
+			word = strings.TrimSuffix(word, ".")
+
+			mu.Lock()
+			result[word]++
+			mu.Unlock()
+		}
 	}
 }
